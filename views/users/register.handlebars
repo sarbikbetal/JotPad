@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-6 col-lg-4 mx-auto">
+        <div class="card card-body">
+            <img src="/img/checklist.png" class="rounded mx-auto d-block" style="width:72px; height:auto">
+            <h3 class="text-center">Account Registration</h3>
+            <form action="/user/register" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="form-control" value="{{name}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" value="{{email}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" value="{{password}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="cpassword">Confirm Password</label>
+                    <input type="password" name="cpassword" id="cpassword" class="form-control" value="{{cpassword}}" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

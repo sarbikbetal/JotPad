@@ -1,0 +1,19 @@
+<div class="jumbotron text-center">
+    <h1 class="display-3">Things To-Do</h1>
+
+    {{#each todos}}
+    <div class="card card-body mb-2">
+        <h4>{{title}}</h4>
+        <p>{{details}}</p>
+        <a class="btn btn-secondary btn-block mb-1" href="/todo/edit/{{id}}">Edit</a>
+        <form action="/todo/{{id}}?_method=DELETE" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" class="btn btn-danger btn-block" value="delete">
+        </form>
+    </div>
+    {{else}}
+    <h3>Yaay! No To-Dos left</h3>
+    {{/each}}
+
+    <a href="/todo/add" class="btn btn-dark btn-lg">Add a To-Do</a>
+</div>
