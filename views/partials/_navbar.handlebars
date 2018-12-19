@@ -1,11 +1,7 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-success mb-3">
+<nav class="navbar navbar-expand-sm fixed-top navbar-light mb-3" style="background-color: #38957e" >
     <div class="container">
         <a class="navbar-brand" href="/"><img src="/img/checklist.png" width="30" height="30" class="d-inline-block align-top mr-2"
-                alt="">Node To-Do</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+                alt="">Node JotPad</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="/">Home</a>
@@ -14,20 +10,11 @@
             <div class="navbar-nav">
                 {{#if user}}
                 <div class="nav-item dropdown">
-                    <i class="material-icons nav-link" id="dropdownMenu" data-toggle="dropdown" style="cursor: pointer; color:antiquewhite; ">
-                        account_circle
-                    </i>
+                    <button type="button" class="btn bmd-btn-icon" id="dropdownMenu" data-toggle="dropdown">
+                        <i class="material-icons">account_circle</i>
+                    </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu">
                         <a class="dropdown-item" href="/user/logout">Logout</a>
-                    </div>
-                </div>
-                <div class="nav-item dropdown">
-                    <i class="material-icons nav-link" id="dropdownMenuLink" data-toggle="dropdown" style="cursor: pointer; color:antiquewhite; ">
-                        more_vert
-                    </i>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="/todo">To-Do</a>
-                        <a class="dropdown-item" href="/todo/add">Add To-Do</a>
                     </div>
                 </div>
 
