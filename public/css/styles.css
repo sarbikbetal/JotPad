@@ -1,3 +1,15 @@
-.dropdown-menu-right.show{
+.dropdown-menu-right.show {
     left: -128px;
+}
+
+@media only screen and (min-width: 576px) {
+    .sn-btn {
+        visibility: hidden;
+    }
+}
+
+.my-fab {
+    position: fixed;
+    bottom: 8vh;
+    right: 10vw;
 }
