@@ -3,14 +3,37 @@
     <div class="row">
         {{#each todos}}
         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card card-body mb-2">
-                <h4>{{title}}</h4>
-                <p>{{details}}</p>
-                <a class="btn btn-secondary btn-block mb-1" href="/todo/edit/{{id}}">Edit</a>
-                <form action="/todo/{{id}}?_method=DELETE" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" class="btn btn-danger btn-block" value="delete">
-                </form>
+            <div class="card mb-2">
+                <div class="card-body pb-1">
+                    <div class="row justify-content-end" style="height:7px">
+                        <button type="button" class="btn btn-danger bmd-btn-icon" style="top:-12px;">
+                            <i class="material-icons" data-toggle="collapse" href="#{{id}}" aria-expanded="false"
+                                aria-controls="{{id}}">close</i>
+                        </button>
+                        </a>
+                    </div>
+                    <h4>{{title}}</h4>
+                    <p>{{details}}</p>
+                    <div class="row justify-content-end">
+                        <a class="btn btn-info" href="/todo/edit/{{id}}">Edit</a>
+                    </div>
+                    <div class="collapse" id="{{id}}">
+                        <div class="card-footer py-1">
+                            <form action="/todo/{{id}}?_method=DELETE" method="post" class="mb-0 justify-content-end">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Are you sure to delete this note?</span>
+                                </div>
+                                <div class="row">
+                                    <button type="button" class="btn btn-secondary" data-toggle="collapse" href="#{{id}}"
+                                        aria-expanded="false" aria-controls="{{id}}">CANCEL</button>
+                                    <div class="col"></div>
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="submit" class="btn btn-danger" value="delete">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         {{else}}

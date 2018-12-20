@@ -106,7 +106,7 @@ router.delete('/:id', ensureAuthenticated, (req, res) => {
             _id: req.params.id
         })
         .then(() => {
-            req.flash('s_msg', 'To-Do deleted')
+            req.flash('e_msg', 'To-Do deleted')
             res.redirect('/todo');
         });
 });
