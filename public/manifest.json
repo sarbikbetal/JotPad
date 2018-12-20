@@ -17,9 +17,9 @@
     "sizes": "96x96",
     "type": "image/svg"
   }, {
-    "src": "img/checklist.svg",
+    "src": "img/icon144.png",
     "sizes": "144x144",
-    "type": "image/svg"
+    "type": "image/png"
   }, {
     "src": "img/checklist.svg",
     "sizes": "192x192",
