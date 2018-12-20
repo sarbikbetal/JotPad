@@ -1,0 +1,33 @@
+<div id="dw-s2" class="bmd-layout-drawer bg-faded">
+    <header>
+        <div class="row">
+            <div class="col-2" style="display:table; height:70px;">
+                <i class="material-icons my-icon" style="font-size: 48px;">person_outline</i>
+            </div>
+            <div class="col" style="padding:0;">
+                {{#if user}}
+                <a class="navbar-brand" style="padding-left:0;">{{user.name}}</a>
+                <p style="padding-left:0.2rem; display: flex;flex-flow: row wrap;align-items: center;">{{user.email}}</p>
+                {{else}}
+                <a class="navbar-brand" style="padding-left:0;">JotPad</a>
+                <p style="padding-left:0.2rem;">Login to see your notes</p>
+                {{/if}}
+            </div>
+            {{#if user}}
+            <div class="col-2" style="padding: 18px; cursor:pointer" data-toggle="modal" data-target="#logoutModal">
+                <img src="img/logout.svg" width="36px" height="36px">
+            </div>
+            {{else}}
+            <div class="col-4">
+                <a class="btn btn-success" href="user/login" role="button" style="float:right">LOGIN</a>
+                <a role="button" class="btn btn-info" href="user/register" style="float:right">REGISTER</a>
+            </div>
+            {{/if}}
+        </div>
+    </header>
+    <ul>
+        <a class="list-group-item myLGI" href="/"><i class="material-icons">home</i>Home</a>
+        <a class="list-group-item myLGI" href="/todo"><i class="material-icons">notes</i>Documents</a>
+        <a class="list-group-item myLGI" href="/about"><i class="material-icons">info</i>About</a>
+    </ul>
+</div>

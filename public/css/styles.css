@@ -13,3 +13,22 @@
     bottom: 8vh;
     right: 10vw;
 }
+
+.bmd-drawer-f-b>.bmd-layout-drawer {
+    height: 270px;
+    transform: translateY(280px);
+}
+
+.my-icon {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.list-group-item :first-child {
+    margin-right: 1rem;
+}
+.myLGI{
+    padding: 0.75rem 1.25rem;
+    color: rgba(0, 0, 0, 0.54);
+}
