@@ -1,14 +1,16 @@
-<div class="card card-body">
-    <h3>New To-Do</h3>
-    <form action="/todo" method="post">
-        <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" name="title" required>
-        </div>
-        <div class="form-group">
-            <label for="details">Details</label>
-            <textarea class="form-control" name="details" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Add</button>
-    </form>
+<div class="row pt-3">
+    <div class="card card-body col-sm-10 col-md-6 col-lg-4 mx-auto">
+        <h3>New To-Do</h3>
+        <form action="/todo" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="details">Details</label>
+                <textarea class="form-control autoExpand" name="details" rows='2' data-min-rows='2' required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
 </div>

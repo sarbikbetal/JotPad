@@ -28,7 +28,14 @@
 .list-group-item :first-child {
     margin-right: 1rem;
 }
-.myLGI{
+
+.myLGI {
     padding: 0.75rem 1.25rem;
     color: rgba(0, 0, 0, 0.54);
+}
+
+textarea .autoExpand{
+    display: block;
+    box-sizing: padding-box;
+    overflow: hidden;
 }
