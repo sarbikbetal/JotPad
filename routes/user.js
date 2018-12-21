@@ -11,17 +11,27 @@ const User = mongoose.model('user');
 
 // User Login route
 router.get('/login', (req, res) => {
-    res.render('users/login');
+    if (req.isAuthenticated()) {
+        req.flash('s_msg', 'You are already logged in');
+        res.redirect('/todo');
+    } else {
+        res.render('users/login');
+    }
 });
 
 // User Registration route
 router.get('/register', (req, res) => {
-    res.render('users/register');
+    if (req.isAuthenticated()) {
+        req.flash('e_msg', 'You need to log out to register a new account');
+        res.redirect('/todo');
+    } else {
+        res.render('users/register');
+    }
 });
 
 // Login Form POST route
 router.post('/login', (req, res, next) => {
-    passport.authenticate('local',{
+    passport.authenticate('local', {
         successRedirect: '/todo',
         failureRedirect: '/user/login',
         failureFlash: true
@@ -87,7 +97,7 @@ router.post('/register', (req, res) => {
 });
 
 // Logout User
-router.get('/logout', (req, res)=>{
+router.get('/logout', (req, res) => {
     req.logout();
     req.flash('s_msg', 'You are logged out');
     res.redirect('/user/login');
