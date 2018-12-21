@@ -1,5 +1,5 @@
 <div class="jumbotron text-center">
-    <h1 class="display-3 mb-3">Things To-Do</h1>
+    <h1 class="display-3 mb-3">Trash</h1>
     <div class="row">
         {{#each todos}}
         <div class="col-12 col-md-6 col-lg-4">
@@ -14,21 +14,27 @@
                     </div>
                     <h4 class="px-2">{{title}}</h4>
                     <p>{{details}}</p>
-                    <div class="row justify-content-end px-2">
-                        <a class="btn btn-info" href="/todo/edit/{{id}}">Edit</a>
-                    </div>
+
+                    <form action="/todo/recover/{{id}}?_method=PUT" method="post" class="mb-0">
+                        <input type="hidden" name="_method" value="PUT">
+                        <div class="row justify-content-end">
+                            <button type="submit" class="btn btn-success" href="/todo/edit/{{id}}">Recover</button>
+                        </div>
+                    </form>
+
+
                     <div class="collapse" id="{{id}}">
                         <div class="card-footer py-1">
-                            <form action="/todo/trash/{{id}}?_method=PUT" method="post" class="mb-0 justify-content-end">
+                            <form action="/todo/{{id}}?_method=DELETE" method="post" class="mb-0 justify-content-end">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Move this note to trash?</span>
+                                    <span class="input-group-text">Permanently delete this note?</span>
                                 </div>
                                 <div class="row">
                                     <button type="button" class="btn btn-secondary" data-toggle="collapse" href="#{{id}}"
                                         aria-expanded="false" aria-controls="{{id}}">CANCEL</button>
                                     <div class="col"></div>
-                                    <input type="hidden" name="_method" value="PUT">
-                                    <button type="submit" class="btn btn-danger" href="/todo/trash/{{id}}">DELETE</button>
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="submit" class="btn btn-danger" value="delete">
                                 </div>
                             </form>
                         </div>
@@ -38,7 +44,7 @@
         </div>
         {{else}}
     </div>
-    <h3>Add a note by clicking the + button</h3>
+    <h3>Nothing in here!</h3>
     {{/each}}
 
     <a href="/todo/add">

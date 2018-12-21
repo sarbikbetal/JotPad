@@ -12,7 +12,8 @@ const Todo = mongoose.model('todo');
 //Todo list page
 router.get('/', ensureAuthenticated, (req, res) => {
     Todo.find({
-            user: req.user.id
+            user: req.user.id,
+            trash: false
         })
         .sort({
             date: 'desc'
@@ -22,7 +23,22 @@ router.get('/', ensureAuthenticated, (req, res) => {
                 todos: todos
             })
         })
+});
 
+// Trash List Page
+router.get('/trash', ensureAuthenticated, (req, res) => {
+    Todo.find({
+            user: req.user.id,
+            trash: true
+        })
+        .sort({
+            date: 'desc'
+        })
+        .then(todos => {
+            res.render('todo/trash', {
+                todos: todos
+            })
+        })
 });
 
 //Add Todo
@@ -91,7 +107,6 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
     }).then(todo => {
         todo.title = req.body.title;
         todo.details = req.body.details;
-
         todo.save()
             .then(todo => {
                 req.flash('s_msg', 'To-Do updated')
@@ -100,7 +115,35 @@ router.put('/:id', ensureAuthenticated, (req, res) => {
     });
 });
 
-//Delete Idea
+// Recover ToDo
+router.put('/recover/:id', ensureAuthenticated, (req, res) => {
+    Todo.findOne({
+        _id: req.params.id
+    }).then(todo => {
+        todo.trash = false;
+        todo.save()
+            .then(todo => {
+                req.flash('s_msg', 'Note Recovered')
+                res.redirect('/todo')
+            })
+    });
+});
+
+// Trash ToDo
+router.put('/trash/:id', ensureAuthenticated, (req, res) => {
+    Todo.findOne({
+        _id: req.params.id
+    }).then(todo => {
+        todo.trash = true;
+        todo.save()
+            .then(todo => {
+                req.flash('e_msg', 'Note moved to trash')
+                res.redirect('/todo')
+            })
+    });
+});
+
+//Delete Todo
 router.delete('/:id', ensureAuthenticated, (req, res) => {
     Todo.deleteOne({
             _id: req.params.id

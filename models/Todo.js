@@ -18,6 +18,10 @@ const TodoSchema = new Schema({
     date:{
         type: Date,
         default: Date.now
+    },
+    trash:{
+        type: Boolean,
+        default: false
     }
 });
 
