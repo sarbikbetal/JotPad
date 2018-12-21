@@ -34,7 +34,7 @@
             </div>
             <div class="modal-footer">
 
-                <form action="/todo/trash?_method=DELETE" method="post" class="mb-0">
+                <form action="/todo/trash/{{user.id}}?_method=DELETE" method="post" class="mb-0">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit" class="btn btn-danger">Delete</button>

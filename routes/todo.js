@@ -155,15 +155,15 @@ router.delete('/:id', ensureAuthenticated, (req, res) => {
 });
 
 //Delete All Todo
-router.delete('/trash', ensureAuthenticated, (req, res) => {
+router.delete('/trash/:id', ensureAuthenticated, (req, res) => {
     Todo.deleteMany({
-            user: req.user.id,
-            trash: true
-        })
-        .then(() => {
-            req.flash('e_msg', 'Trash emptied')
-            res.redirect('/todo');
-        });
+        user: req.user.id,
+        trash: true
+    })
+    .then(() => {
+        req.flash('e_msg', 'Trash emptied')
+        res.redirect('/todo');
+    });
 });
 
 
