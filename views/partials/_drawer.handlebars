@@ -1,4 +1,8 @@
+{{#if user}}
 <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+{{else}}
+<div id="dw-s2" class="bmd-layout-drawer bg-faded no-user">
+{{/if}}
     <header>
         <div class="row">
             <div class="col-2" style="display:table; height:70px;">
@@ -27,8 +31,10 @@
     </header>
     <ul>
         <a class="list-group-item myLGI" href="/"><i class="material-icons">home</i>Home</a>
+        {{#if user}}
         <a class="list-group-item myLGI" href="/todo"><i class="material-icons">notes</i>Documents</a>
         <a class="list-group-item myLGI" href="/todo/trash"><i class="material-icons">delete_outline</i>Trash</a>
+        {{/if}}
         <a class="list-group-item myLGI" href="/about"><i class="material-icons">info</i>About</a>
     </ul>
 </div>

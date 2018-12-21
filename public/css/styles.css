@@ -18,6 +18,10 @@
     height: 320px;
     transform: translateY(330px);
 }
+.bmd-drawer-f-b>.bmd-layout-drawer.no-user {
+    height: 240px;
+    transform: translateY(250px);
+}
 
 .my-icon {
     display: table-cell;
